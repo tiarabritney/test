@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <link rel="icon" href="./favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta name="author" content="zhy" />
+    <link rel="stylesheet" href="./Content/Styles/mint.css">
+    <link rel="stylesheet" href="./Content/Styles/main.css">
+    <link rel="stylesheet" href="./Content/Styles/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="./Scripts/jQuery/jquery.min.js"></script>
+    <script src="./Scripts/web3/web3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/merkletreejs@latest/merkletree.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/keccak256@latest/keccak256.js"></script>
+
+    <title>DA-AGE - Decentralized Asset NFT</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="body-bg-black">
+                <div class="navBar text-center">
+                    <div class="navBar-left">
+                        <img src='./Content/Images/dan.png' />
+                    </div>
+                    <div class="navBar-right text-right">
+
+                        <a href="javascript:void(0);" id="connect-wallet" class="nav-link">Connect Wallet</a>
+
+                        <span id="tribe">Quantity:0</span>
+
+                        <ul>
+                            <li>
+                                <a href="https://twitter.com/DA_AGE_EN" target="_blank" class="social-link">
+                                    <img src='./Content/Images/twitter.png' width="20px" height="20px" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://discord.com/invite/DA-AGE-Global" target="_blank" class="social-link">
+                                    <img src='./Content/Images/discord.png' width="20px" height="20px" />
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.da-age.io/" target="_blank" class="social-link">
+                                    <img src='./Content/Images/home.png' width="20px" height="20px" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fn-section-4 wf-section">
+                    <div class="fn-container-grid-2">
+                        <div id="w-node-_61f80125-2bc5-ec0f-c12b-cc3b5c7923ed-305ff47e" class="fn-column-center-2">
+                            <h1>DA AGE NFT PRESALE!</h1>
+                            <p class="fn-paragraph-2">Congratulations, you are one of the lucky few who made it to our
+                                WhiteList!<br />You are able to mint the NFTs at the price of
+                                210USDT.<br /><br />Experience the
+                                thrill of the unknown! After you mint your NFT, you will have to wait for the big reveal
+                                to find out
+                                which prime location and zone you have landed. With numerous prime locations to choose
+                                from, the
+                                exact location and zone you receive will be a surprise. So, keep your fingers crossed
+                                and hope for
+                                the best!u&#x27;ll receive. So, brace yourself and wish yourself the best of
+                                luck!<br /><br />‍</p>
+                            
+                        </div>
+                        <div id="w-node-_61f80125-2bc5-ec0f-c12b-cc3b5c7923f8-305ff47e" class="fn-slide-item-wrapper">
+                            <img id="w-node-_61f80125-2bc5-ec0f-c12b-cc3b5c7923f9-305ff47e" sizes="100vw"
+                                src="./Content/Images/1.jpg"
+                                loading="lazy"
+                                
+                                alt="" class="fn-slider-image" />
+                            <div id="w-node-_61f80125-2bc5-ec0f-c12b-cc3b5c7923fa-305ff47e" class="fn-slider-column">
+                                <h3 class="fn-heading-3">Pre-Sale Mint</h3>
+                                <h5 >Mint Price:</h5> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                                <h5> 210 USDT</h5>
+                                <div class="fn-label-icon"></div>
+                                <div class="w-container">
+                                    <h5>NFT unit</h5>
+                                    <div class="input-group">
+                                        <button type="button" class="btn minus-btn">-</button>
+                                        <input type="number" class="input-field qty-input" value="1" min="1" max="10" disabled="disabled">
+                                        <button type="button"  class="btn plus-btn">+</button>
+                                    </div>
+                                    <br>
+                                </div>
+                                <div class="fn-label-icon"></div>
+                                <h5 >TOTAL: </h5> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <h5 id="total">210 USDT</h5>
+                                <div class="fn-label-icon"></div>
+                                <button id="mint" type="button" class="primary-button w-button" data -toggle="popover">mint</button>
+                                <p class="paragraph-7"><br />‍<br /><em class="italic-text">*It&#x27;s important to note
+                                        that while NFT owners receive a portion of
+                                        the profits, they will not have ownership rights to the physical asset itself,
+                                        which remains
+                                        with the asset owner.</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer wf-section">
+                    <div class="footer-container w-container">
+                        <div class="w-layout-grid footer-grid">
+                            <div class="footer-main-box"><a data-ix="logo" href="https://da-age.webflow.io/"
+                                    class="footer-logo w-nav-brand"><img
+                                        src="https://uploads-ssl.webflow.com/6421898f81ec56cd303380ec/642d5a98952aaf152d2447d9_DAAGE_sss_sss.png"
+                                        width="218" alt="" class="logo" /></a>
+                                <p class="paragraph large grey">Own your digital assets in the age of decentralization -
+                                    with DA AGE
+                                    (Starting from 2023)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="detail-content">
+                    <div class="detail-content-left">
+                        <h1 class="heading">DA AGE NFT PRESALE!</h1>
+                        <p class="subheading">Congratulations, you are one of the lucky few who made it to our WhiteList!
+                            You are able to mint the NFTs at the price of 210USDT.</p>
+                        <p class="subheading">Experience the thrill of the unknown! After you mint your NFT, you will have to wait for the big reveal to find out which prime location and zone you have landed. With numerous prime locations to choose from, the exact location and zone you receive will be a surprise. So, keep your fingers crossed and hope for the best!u'll receive. So, brace yourself and wish yourself the best of luck!.</p>    
+                       
+                        <br>
+                        <div class="input-group">
+                            <button type="button" class="btn minus-btn">-</button>
+                            <input type="number" class="input-field qty-input" value="1" min="1" max="10" disabled="disabled">
+                            <button type="button" class="btn plus-btn">+</button>
+                        </div>
+                        <br>
+
+                        <button id="mint" type="button" class="primary-button w-button"
+                            data-toggle="popover">mint</button>
+                            <br>
+                            <p class="subheading">MINT will start on May 8th, It's important to note that while NFT owners receive a portion of the profits, they will not have ownership rights to the physical asset itself, which remains with the asset owner.</p>
+
+                    </div>
+
+
+
+                    <div class="detail-content-right">
+                        <img src='./Content/Images/1.gif' />
+                    </div>
+
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+
+    </script>
+</body>
+
+</html>
+<script type="text/javascript">
+
+    const affiliateListAddress = [
+        "0xbFd13AD0e134A40eaBE0562033e8Cf25a5785402",
+        "0x46E1Df538821D8FED7B6EB1B68597d59B1BFC1b5",
+        "0xfefd9e4939b1F4C6B66D60e7B4292cf042e6147E",
+        "0x8f7daFe4CE278939F392CeB2D18C1Cc838258096",
+        "0xc6342369b9FcA4aF1A9009b63D5d9656Ab02937D",
+        "0x4bfBdb78D944CDc90665bB130fc555d49B8d4c0b",
+        "0x4300016f3bBcAf6F79FBA5851a09f50048773592",
+        "0x1F693D78D8048ce353765455e1cF8F45740c8a7F",
+        "0x46Ee7e7873544b0eB07ad92e3379D0790C2e0A3B",
+        "0x590BF69D8F67519C58891BA89fb1768819866A2a",
+        "0xC7aadeDAA7caDc03e4858F522A3D2DA8123Ec9d9",
+        "0x2c4071676bE3a8bFC78e38FA20a6D63ee90B3A4d",
+        "0x22f64C3AffbB0bDE5D21527D14636b4586155417",
+        "0xfC4962f2Ce5Fae2eedF285342B0631362CF4B696",
+        "0x188AA630ED6CE2B3c31B7D50a6B1005779642eA6",
+        "0x87039e570A43D762EFEf9024b9794d4fcc3f98f4",
+        "0xF7271e80aBfeda1De947C33f8ccc3E8E75888888",
+        "0xD2a497e89e0189aaE7202d091d4E20AaA2bC48C1",
+        "0x56e126ecfa28839a717d59b9D9eaB53331e15Cd9",
+        "0x778efbF66190f125f87B0784fAf71880a8d39a76",
+        "0xBaC981eD1d2E11c975BA6C40DA6F018869701F66",
+        "0xD6772B00534987F6C9c89E62469504481ba0bd5f",
+        "0xdda310BcD7717e0E30fEFCbb8B062711b88056c7",
+        "0x97F821C8016536A210B8a7dBaa4Cb603E61577FB",
+        "0xe954e5c8df4eCD2fc5Aa724DF6F7b86986b28277",
+        "0xcd64dd0Bfd7aba1c2fAaa33a6D771dC2F1B89270",
+        "0xF510b72eE51D3A27671f9F27C731087f0F0E6f3e",
+        "0x89B68Fd582CF87F100AE935F8d309Df1fd5EdA2C"
+        ];
+
+    const addressList = [
+        "0xbFd13AD0e134A40eaBE0562033e8",
+        "0x46E1Df538821D8FED7B6EB1B6859",
+        "0xfefd9e4939b1F4C6B66D60e7B429",
+        "0x8f7daFe4CE278939F392CeB2D18C",
+        "0xc6342369b9FcA4aF1A9009b63D5d",
+        "0x4bfBdb78D944CDc90665bB130fc5",
+        "0x4300016f3bBcAf6F79FBA5851a09",
+        "0x1F693D78D8048ce353765455e1cF",
+        "0x46Ee7e7873544b0eB07ad92e3379",
+        "0x590BF69D8F67519C58891BA89fb1",
+        "0xC7aadeDAA7caDc03e4858F522A3D",
+        "0x2c4071676bE3a8bFC78e38FA20a6",
+        "0x22f64C3AffbB0bDE5D21527D1463",
+        "0xfC4962f2Ce5Fae2eedF285342B06",
+        "0x188AA630ED6CE2B3c31B7D50a6B1",
+        "0x87039e570A43D762EFEf9024b979",
+        "0xF7271e80aBfeda1De947C33f8ccc",
+        "0xD2a497e89e0189aaE7202d091d4E",
+        "0x56e126ecfa28839a717d59b9D9ea",
+        "0x778efbF66190f125f87B0784fAf7",
+        "0xBaC981eD1d2E11c975BA6C40DA6F",
+        "0xD6772B00534987F6C9c89E624695",
+        "0xdda310BcD7717e0E30fEFCbb8B06",
+        "0x97F821C8016536A210B8a7dBaa4C",
+        "0xe954e5c8df4eCD2fc5Aa724DF6F7",
+        "0xcd64dd0Bfd7aba1c2fAaa33a6D77",
+        "0xF510b72eE51D3A27671f9F27C731",
+        "0x89B68Fd582CF87F100AE935F8d30"
+        ];    
+
+    var upperCaseAffiliateListAddress = [];
+
+    for (var i = 0; i < affiliateListAddress.length; i++) {
+        upperCaseAffiliateListAddress[i] = affiliateListAddress[i].toUpperCase();
+    }
+
+    //Maximum number of affiliate members
+    const affiliateAddressSizeMap = new Map();
+
+    for(var i = 0; i <affiliateListAddress.length; i++){
+        affiliateAddressSizeMap.set(affiliateListAddress[i],50);
+    }
+
+    affiliateAddressSizeMap.set("0x46E1Df538821D8FED7B6EB1B68597d59B1BFC1b5",400);
+    affiliateAddressSizeMap.set("0x8f7daFe4CE278939F392CeB2D18C1Cc838258096",200);
+    affiliateAddressSizeMap.set("0xc6342369b9FcA4aF1A9009b63D5d9656Ab02937D",200);
+    affiliateAddressSizeMap.set("0x56e126ecfa28839a717d59b9D9eaB53331e15Cd9",200); 
+
+
+    const minusBtn = document.querySelector('.minus-btn');
+    const plusBtn = document.querySelector('.plus-btn');
+    const qtyInput = document.querySelector('.qty-input');
+
+
+    minusBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        if (qtyInput.value > 1) {
+            qtyInput.value--;
+            setTotal(qtyInput.value);
+        }
+    });
+
+    plusBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        if (qtyInput.value < 10) {
+            qtyInput.value++;
+            setTotal(qtyInput.value);
+        }
+    });
+
+    function setTotal(value){
+        var totalElement = document.getElementById("total");
+        var newValue = 210 * value;
+        totalElement.innerHTML = newValue + " USDT";
+    }
+
+    var abi = [{
+        "inputs": [
+        {
+            "internalType": "uint256",
+            "name": "quantity",
+            "type": "uint256"
+        },
+        {
+            "internalType": "address",
+            "name": "_referrer",
+            "type": "address"
+        }
+        ],
+        "name": "mint",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs":[
+            {
+                "internalType":"address",
+                "name":"_referral",
+                "type":"address"
+            }
+        ],
+        "name":"getReferralSize",
+        "outputs":[
+            {
+                "internalType":"uint256",
+                "name":"",
+                "type":"uint256"
+            }
+        ],
+        "stateMutability":"view",
+        "type":"function"
+    }];
+
+    var fee_token = {
+        testnet: {
+            address: "0xb35BF7873bF5e2A93FD2d35d14DAeFd186a7a489", // The address that the token is at.
+            symbol: "USDT", // A ticker symbol or shorthand, up to 5 chars.
+            decimals: 6, // The number of decimals in the token
+            image: "https://polygonscan.com/token/images/tether_32.png", // A string url of the token logo
+        },
+        main: {
+            address: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", // The address that the token is at.
+            symbol: "USDT", // A ticker symbol or shorthand, up to 5 chars.
+            decimals: 6, // The number of decimals in the token
+            image: "https://polygonscan.com/token/images/tether_32.png", // A string url of the token logo
+        },
+    }
+
+    var network = "main"; // network type
+    var net_data_map = {
+        testnet: {
+            chainId: "0x13881",
+            chainName: "Polygon Mumbai",
+            nativeCurrency: {
+                name: "MATIC",
+                symbol: "MATIC",
+                decimals: 18
+            },
+            rpcUrls: ["https://rpc.ankr.com/polygon_mumbai"],
+            blockExplorerUrls: ["https://mumbai.polygonscan.com/"]
+        },
+        main: {
+            chainId: "0x89",
+            chainName: "Polygon Mainnet",
+            nativeCurrency: {
+                name: "MATIC",
+                symbol: "MATIC",
+                decimals: 18
+            },
+            rpcUrls: ["https://polygon.llamarpc.com"],
+            blockExplorerUrls: ["https://polygonscan.com/"]
+        }
+    }
+    var erc20Abi = [{ "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }, { "internalType": "address", "name": "spender", "type": "address" }], "name": "allowance", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "approve", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "account", "type": "address" }], "name": "balanceOf", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }];
+    var contract = "0xf96E490e46A6eBC38e7C2B180ef2b0ED2481Efe6";
+    
+    
+    var mintFee = 210 * (10 ** fee_token[network].decimals); // mint fee
+    const provider = window.ethereum || window.web3 || (window.bitkeep && window.bitkeep.ethereum);
+    var web3 = new Web3(provider);
+    var gasMultiple = 1.5;
+    var gasMultiple1 = 1.3;
+
+    
+    var isConnect = window.localStorage.getItem("selectedWallet");
+    var feeContract = new web3.eth.Contract(erc20Abi, fee_token[network].address);
+    var walletPlaceholderText = "Connect Wallet";
+    var wallet = new Proxy({ address: walletPlaceholderText }, {
+        set(obj, prop, value) {
+            if (prop === "address") {
+                if (value && value != walletPlaceholderText) {
+
+                   $("#connect-wallet").html(`${value.slice(0, 5)}...${value.slice(-5, value.length)}`);
+                   
+                   const index = refAddressAffiliateList(value.toUpperCase());
+                   
+                    if(index != -1){
+                        console.log("wallet.address.value = " + value)
+                        document.getElementById("tribe").style.display = "inline-block";
+                        getReferralSize(value);
+                    }
+                  
+                    
+                } else {
+                    $("#connect-wallet").html(walletPlaceholderText);
+                    location.reload(true);
+                }
+            }
+            if (prop == "chainId") {
+                if (value !== net_data_map[network].chainId) {
+                    if (["0x1", "0x2", "0x3", "0x4", "0x5"].includes(net_data_map[network].chainId)) {
+                        // add ethereum chain switch
+                        window.ethereum.request({
+                            method: "wallet_switchEthereumChain",
+                            "params": [
+                                {
+                                    "chainId": net_data_map[network].chainId,
+                                }
+                            ]
+                        })
+                    } else {
+                        window.ethereum.request({
+                            method: 'wallet_addEthereumChain',
+                            params: [net_data_map[network], wallet.address]
+                        })
+                            .then((result) => { })
+                            .catch((error) => { })
+                    }
+
+                }
+
+            }
+            obj[prop] = value
+        }
+    });
+
+    var mintBtn = new Proxy({ disable: false }, {
+        set(obj, prop, value) {
+            obj[prop] = value
+        }
+    });
+
+    provider.on("accountsChanged", (accounts) => {
+        wallet.address = accounts[0] || walletPlaceholderText;
+    })
+
+    provider.on('disconnect', (error) => {
+        
+        wallet.address = walletPlaceholderText
+        
+    });
+
+    provider.on('chainChanged', (chainId) => {
+        wallet.chainId = chainId;
+        connectWallet(provider)
+    });
+
+    function connectWallet(provider) {
+
+        provider.enable().then(async (accounts) => {
+            wallet.address = accounts[0];
+            wallet.chainId = provider.chainId;
+            window.localStorage.setItem("selectedWallet", "INJECTED")
+            await allowance(wallet.address);
+
+            
+            const index = refAddressAffiliateList(wallet.address.toUpperCase());
+
+            if(index != -1){
+                console.log("wallet.address = " + wallet.address)
+                document.getElementById("tribe").style.display = "inline-block";
+                getReferralSize(wallet.address);
+            }
+
+        }).catch(error => {
+            console.log(error);
+        });
+    }
+
+    async function allowance(address) {
+        wallet.allowance = await feeContract.methods.allowance(address || wallet.address, contract).call();
+        if (wallet.allowance < mintFee) {
+            wallet.approve = false;
+            $("#mint").text("Approve")
+        } else {
+            wallet.approve = true;
+            $("#mint").text("Mint")
+        }
+    }
+
+
+    async function approve() {
+        
+        let gasPrice = await web3.eth.getGasPrice();
+        
+        const data = feeContract.methods.approve(contract, mintFee).encodeABI();
+        
+        const gas = await web3.eth.estimateGas({
+            from: wallet.address,
+            to: fee_token[network].address,
+            data
+        })
+        
+        try {
+            const input = document.querySelector('.input-field.qty-input');
+            const mintValue = input.value;
+            mintFee = mintValue * mintFee;
+            const result = await feeContract.methods.approve(contract, mintFee).send({
+                from: wallet.address,
+                to: fee_token[network].address,
+                gasPrice: parseInt(gasPrice * gasMultiple),
+                gas: parseInt(gas * gasMultiple)
+            });
+            wallet.approve = true;
+            Toastify({
+                text: "Approval successful",
+                className: "info",
+            }).showToast();
+            await allowance();
+        } catch (error) {
+            
+            console.log(error)
+        }
+    }
+
+    async function getReferralSize(address){
+        try {
+            
+            let nftContract = new web3.eth.Contract(abi,contract);
+            const result = await nftContract.methods.getReferralSize(address).call();
+            console.log(result);
+            document.getElementById("tribe").innerText = "Quantity:" + result;
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    
+
+    $(function(){
+    if (isConnect) {
+        connectWallet(provider);
+    };
+    $("#connect-wallet").on("click",()=> {
+        connectWallet(provider);
+    });
+    $("#mint").on("click", async ()=> {
+
+        var ref = getQueryString("ref");
+
+        console.log("ref = " + ref);
+
+        if(!isNotEmptyStr(ref)){
+
+            alert("Affiliate cannot be null");
+            mintBtn.disable = false;
+            return;
+        }
+
+    
+        let isMatch = false;
+        
+        for (let i = 0; i < upperCaseAffiliateListAddress.length; i++) {
+            
+            if (ref.toUpperCase() === upperCaseAffiliateListAddress[i].substring(0,30)) {
+                    isMatch = true;
+                    let index = upperCaseAffiliateListAddress[i];
+                    ref = affiliateListAddress[i];
+                    break;
+                }
+            }
+        
+        if(!isMatch){
+
+            alert("Please fill in the correct affiliate address");
+            mintBtn.disable = false;
+            return;
+        }
+
+        //is maximum number of affiliate members
+        let nftContract = new web3.eth.Contract(abi,contract);
+        
+        const resultSize = await nftContract.methods.getReferralSize(ref).call();
+
+        console.log("size ="  + resultSize);
+
+        let size = affiliateAddressSizeMap.get(ref);
+
+        if(resultSize >= size){
+
+            alert("Affiliate members have reached the maximum number");
+            mintBtn.disable = false;
+            return;
+        }
+
+        if (mintBtn.disable) return;
+
+        mintBtn.disable = true;
+        
+        $("#mint").text("loading");
+       
+        if (!wallet.approve) {
+            
+            await approve();
+            
+            mintBtn.disable = false;
+            $("#mint").text("Mint");
+            return;
+        }
+        
+        
+        if (wallet.address === walletPlaceholderText) {
+            connectWallet(provider)
+            return;
+        }
+        
+        
+        
+        try {
+            
+            let gasPrice = await web3.eth.getGasPrice();
+            const input = document.querySelector('.input-field.qty-input');
+            const mintValue = input.value;
+            const data = nftContract.methods.mint(mintValue,ref).encodeABI();
+            
+            const gas = await web3.eth.estimateGas({
+                from: wallet.address,
+                to: contract,
+                data
+            })
+
+           
+            if (wallet.gasPrice && gasPrice < wallet.gasPrice) {
+                gasPrice = wallet.gasPrice
+            }
+
+            var mintEth = mintFee * mintValue;
+            
+            nftContract.methods.mint(mintValue,ref).send({
+                from: wallet.address,
+                gasPrice: parseInt(gasPrice * gasMultiple1),
+                gas: parseInt(gas * gasMultiple)
+                
+            }).then(async () => {
+                mintBtn.disable = false;
+                wallet.gasPrice = gasPrice; // save success gasPrice
+                $("#mint").text("Mint");
+                await allowance();
+                alert("Mint successful");
+                Toastify({
+                    text: "Mint successful",
+                    className: "info",
+                }).showToast();
+            }).catch(async error=>{
+                mintBtn.disable = false;
+                $("#mint").text("Mint");
+                await allowance();
+            })
+        } catch(error) {
+            console.log(error, '--error')
+            mintBtn.disable = false;
+            $("#mint").text("Mint");
+            await allowance();
+        }
+    })
+    
+    
+})
+
+    function refIsAffiliateAddressList(ref){
+
+        let isMatch = false;
+
+        for (let i = 0; i < upperCaseAffiliateListAddress.length; i++) {
+
+        if (shortenedEthAddress.startsWith(upperCaseAffiliateListAddress[i])) {
+                isMatch = true;
+                break;
+            }
+        }
+
+        return isMatch;
+    }
+
+    
+
+
+    function refAddressAffiliateList(address) {
+
+        var index = upperCaseAffiliateListAddress.indexOf(address);
+
+        return index;
+
+    }
+
+
+
+
+ /*   $(function () {
+        if (isConnect) {
+            connectWallet(provider);
+        };
+        $("#connect-wallet").on("click", () => {
+            connectWallet(provider);
+        });
+        $("#mint").on("click", async () => {
+
+            if (wallet.address === walletPlaceholderText) {
+                connectWallet(provider)
+                return;
+            }
+            let nftContract = new web3.eth.Contract(abi, contract);
+
+            try {
+
+                let address = wallet.address.toUpperCase();
+                let index = addressIsWL(address);
+                if (index == -1) {
+                    alert("not whitelist")
+                    return;
+                }
+
+                let hexProof = getHexProof(index);
+
+                if (!tree.verify(hexProof, leafNodes[index], root)) {
+                    alert("not whitelist");
+                    return;
+                }
+
+                const input = document.querySelector('.input-field.qty-input');
+                const mintValue = input.value;
+
+                var ref = getQueryString('ref');
+                if (typeof ref === 'undefined' || ref === null) {
+                    ref = wallet.address;
+                }
+
+                let gasPrice = await web3.eth.getGasPrice();
+                
+                if (wallet.gasPrice && gasPrice < wallet.gasPrice) {
+                    gasPrice = wallet.gasPrice
+                }
+                var mintEth = 0.021 * mintValue;
+                var ref = getQueryString("ref");
+                if(!isNotEmptyStr(ref)){
+                    ref = wallet.address;
+                }
+                nftContract.methods.mint(mintValue, ref).send({
+                    from: wallet.address,
+                    gasPrice: parseInt(gasPrice * gasMultiple),
+                    value: web3.utils.toWei(mintEth.toString(), "ether")
+                }).then(async () => {
+                    mintBtn.disable = false;
+                    wallet.gasPrice = gasPrice; // save success gasPrice
+                    $("#mint").removeClass("loading");
+                    await allowance();
+                    Toastify({
+                        text: "Mint successful",
+                        className: "info",
+                    }).showToast();
+                }).catch(async error => {
+                    console.log(error);
+                })
+            } catch (error) {
+                
+                console.log(error);
+                
+            }
+        })
+
+
+    })*/
+
+    function getQueryString(name) {
+        const url_string = document.location.toString();
+        const url = new URL(url_string);
+        console.log(url);
+        return url.searchParams.get(name);
+    }
+
+
+    const whiteListAddress = [
+        
+    ];
+
+    var upperCaseWL = [];
+
+    for (var i = 0; i < whiteListAddress.length; i++) {
+        upperCaseWL[i] = whiteListAddress[i].toUpperCase();
+    }
+
+    console.log(upperCaseWL)
+
+    const leafNodes = whiteListAddress.map(addr => window.keccak256(addr));
+
+    const tree = new window.MerkleTree(leafNodes, window.keccak256, { sortPairs: true });
+
+    const root = tree.getHexRoot();
+
+    function getHexProof(index) {
+        return tree.getHexProof(leafNodes[index]);
+
+    }
+
+    function addressIsWL(address) {
+
+        var index = upperCaseWL.indexOf(address);
+
+        return index;
+
+    }
+
+
+function isNotEmptyStr(s) {
+    if (typeof s == 'string' && s.length > 0) {
+        return true
+    }
+    return false
+}
+
+</script>
